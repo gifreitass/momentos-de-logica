@@ -1,7 +1,6 @@
 let ultimoSalario = 0
 
 do {
-    let salario = prompt('Informe o seu salário:')
+    let salario = parseInt(prompt('Informe o seu salário:'))
     ultimoSalario = salario
-    let numFilhos = 
-} while (ultimoSalario < 0);
+} while (ultimoSalario > 0);
