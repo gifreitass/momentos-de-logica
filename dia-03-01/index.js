@@ -1,27 +1,42 @@
-//I = 1
-//V = 5
-//X = 10
-//L = 50
-//C = 100
-//D = 500
-//M = 1000
-
-function numerosRomanos(numero){
-    const numbers = numero.split('')
-    console.log(numbers)
-
-    numbers.forEach(number => {
-        let numeroAtual = 0
-        if(number === 'I'){
-            numeroAtual += 1
-        }
-        if(number === 'V'){
-            numeroAtual += 5
-        }
-        console.log(numeroAtual)
-    });
+const romanNumbers = {
+    'I': 1,
+    'V': 5,
+    'X': 10,
+    'L': 50,
+    'C': 100,
+    'D': 500,
+    'M': 1000
 }
 
-numerosRomanos('VVI')
+function convertNumbers(numbers){
+    const separateNumbers = numbers.split('')
+    console.log(separateNumbers)
 
-//percorrer array de strings e dar um valor para cada letra 
+    const valueNumbers = []
+    let previousValue = 0
+
+    separateNumbers.forEach(number => {
+        let valor = romanNumbers[number]
+
+        if(previousValue < valor && previousValue !== 0){
+            valor -=  previousValue
+            console.log(valor)
+            valueNumbers.push(valor)
+        } 
+        else{
+            valueNumbers.push(valor)
+        }
+
+        previousValue = valor
+    });
+
+    let sum = 0
+
+    valueNumbers.forEach(valueNumber => {
+        sum += valueNumber
+    });
+
+    console.log(sum)
+}
+
+convertNumbers('XIV')
