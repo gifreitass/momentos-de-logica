@@ -20,7 +20,6 @@ function convertNumbers(numbers){
 
         if(previousValue < valor && previousValue !== 0){
             valor -=  previousValue
-            console.log(valor)
             valueNumbers.push(valor)
         } 
         else{
