@@ -18,12 +18,10 @@ function convertNumbers(numbers){
     separateNumbers.forEach(number => {
         let valor = romanNumbers[number]
 
-        if(previousValue < valor && previousValue !== 0){
-            valor -=  previousValue
+        if(previousValue < valor){
             valueNumbers.push(valor)
-        } 
-        else{
-            valueNumbers.push(valor)
+        }else{
+            valueNumbers.push(-valor)
         }
 
         previousValue = valor
@@ -34,6 +32,8 @@ function convertNumbers(numbers){
     valueNumbers.forEach(valueNumber => {
         sum += valueNumber
     });
+
+    console.log({ valueNumbers })
 
     console.log(sum)
 }
